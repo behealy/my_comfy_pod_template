@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# # Install ComfyUI and ComfyUI Manager
+# cd /ComfyUI && \
+#     git init && \
+#     git remote add origin https://github.com/comfyanonymous/ComfyUI.git && \
+#     git fetch --depth 1 origin tag ${COMFYUI_VERSION} && \
+#     git checkout FETCH_HEAD && \
+#     pip install -r requirements.txt && \
+#     git clone https://github.com/ltdrdata/ComfyUI-Manager.git custom_nodes/ComfyUI-Manager && \
+#     cd custom_nodes/ComfyUI-Manager && \
+#     pip install -r requirements.txt
+
+# # Create user directory to store logs
+# mkdir -p /ComfyUI/user
+
 # Create model directories in workspace if they don't exist
 mkdir -p /workspace/comfyui/models/{checkpoints,clip,clip_vision,controlnet,diffusers,embeddings,loras,upscale_models,vae,unet,configs}
 

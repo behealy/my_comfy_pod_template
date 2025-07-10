@@ -1,6 +1,6 @@
 services:
   comfyui:
-    image: runpod/stable-diffusion:comfy-ui-6.0.0
+    image: behealy/my_comfy_pod:0.0.1
     ports:
       - "3001:3000" # ComfyUI
       - "8888:8888" # Jupyter
