@@ -7,6 +7,11 @@ mkdir -p /workspace/flux/{checkpoints,clip,clip_vision,controlnet,diffusers,embe
 # run setup_comfy_ui.sh
 ./setup_comfy_ui.sh
 
+# check if environment variable is set, if so, use it's value to run load_models.sh
+if [ -n "$MODEL_SET_ONSTARTUP" ]; then
+    ./load_models.sh $MODEL_SET_ONSTARTUP
+fi
+
 cd /ComfyUI
 nohup python main.py --listen --port 3000 >> /dev/stdout 2>&1 &
 
