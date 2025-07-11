@@ -1,0 +1,87 @@
+{
+    "checkpoints": [
+        {
+            "_type": "checkpoint",
+            "downloadSource": {
+                "default_url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors",
+                "huggingface_hub": {
+                    "repo_id": "stabilityai/stable-diffusion-xl-base-1.0",
+                    "filename": "sd_xl_base_1.0.safetensors"
+                }
+            }
+        },
+        {
+            "_type": "checkpoint",
+            "downloadSource": {
+                "default_url": "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors",
+                "huggingface_hub": {
+                    "repo_id": "stabilityai/stable-diffusion-xl-refiner-1.0",
+                    "filename": "sd_xl_refiner_1.0.safetensors"
+                }
+            }
+        }
+    ],
+    "loras": [
+        {
+            "_type": "lora",
+            "local_filename": "analog-photo-lora.safetensors",
+            "downloadSource": {
+                "default_url": "https://huggingface.co/artificialguybr/analogredmond-v2/resolve/main/AnalogRedmondV2-Analog-AnalogRedmAF.safetensors",
+                "huggingface_hub": {
+                    "repo_id": "artificialguybr/analogredmond-v2",
+                    "filename": "AnalogRedmondV2-Analog-AnalogRedmAF.safetensors"
+                }
+            },
+            "lora_data": {
+                "activation_tag": "AnalogRedmAF"
+            }
+        },
+        {
+            "_type": "lora",
+            "local_filename": "lineart-manga-lora.safetensors",
+            "downloadSource": {
+                "default_url": "https://huggingface.co/artificialguybr/LineAniRedmond-LinearMangaSDXL/resolve/main/LineAniRedmond-LineAniAF.safetensors"
+            },
+            "lora_data": {
+                "activation_tag": "LineAniAF"
+            }
+        },
+        {
+            "_type": "lora",
+            "downloadSource": {
+                "huggingface_hub": {
+                    "repo_id": "artificialguybr/ps1redmond-ps1-game-graphics-lora-for-sdxl",
+                    "filename": "PS1Redmond-PS1Game-Playstation1Graphics.safetensors"
+                }
+            },
+            "lora_data": {
+                "activation_tag": "Playstation 1 Graphics, PS1 Game"
+            }
+        },
+        {
+            "_type": "lora",
+            "downloadSource": {
+                "huggingface_hub": {
+                    "repo_id": "WizWhite/gildenface-xl-headshot-lora",
+                    "filename": "GildenfaceXL_Headshot_LoRA_v1.safetensors"
+                }
+            },
+            "lora_data": {
+                "activation_tag": "Gildenface portrait photo"
+            }
+        }
+    ],
+    "controlnets": [
+        {
+            "_type": "controlnet",
+            "local_filename": "controlnet-union-sdxl-1.0.safetensors",
+            "downloadSource": {
+                "default_url": "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors",
+                "huggingface_hub": {
+                    "repo_id": "xinsir/controlnet-union-sdxl-1.0",
+                    "filename": "diffusion_pytorch_model.safetensors"
+                }
+            }
+        }
+    ]
+}

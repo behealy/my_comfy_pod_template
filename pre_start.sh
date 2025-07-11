@@ -1,36 +1,11 @@
 #!/bin/bash
 
-# # Install ComfyUI and ComfyUI Manager
-# cd /ComfyUI && \
-#     git init && \
-#     git remote add origin https://github.com/comfyanonymous/ComfyUI.git && \
-#     git fetch --depth 1 origin tag ${COMFYUI_VERSION} && \
-#     git checkout FETCH_HEAD && \
-#     pip install -r requirements.txt && \
-#     git clone https://github.com/ltdrdata/ComfyUI-Manager.git custom_nodes/ComfyUI-Manager && \
-#     cd custom_nodes/ComfyUI-Manager && \
-#     pip install -r requirements.txt
-
-# # Create user directory to store logs
-# mkdir -p /ComfyUI/user
-
 # Create model directories in workspace if they don't exist
-mkdir -p /workspace/comfyui/models/{checkpoints,clip,clip_vision,controlnet,diffusers,embeddings,loras,upscale_models,vae,unet,configs}
+mkdir -p /workspace/sdxl/{checkpoints,clip,clip_vision,controlnet,diffusers,embeddings,loras,upscale_models,vae,unet,configs,text_encoders}
+mkdir -p /workspace/flux/{checkpoints,clip,clip_vision,controlnet,diffusers,embeddings,loras,upscale_models,vae,unet,configs,text_encoders}
 
-cd /workspace/comfyui/models/checkpoints
-wget -O sd_xl_base_1.0.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors
-wget -O sd_xl_refiner_1.0.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors
-wget -O flux1-schnell-fp8.safetensors https://huggingface.co/Comfy-Org/flux1-schnell/resolve/main/flux1-schnell-fp8.safetensors
-cd /
-
-cd /workspace/comfyui/models/controlnet
-wget -O controlnet-union-sdxl-1.0.safetensors https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors
-cd /
-
-cd /workspace/comfyui/models/loras
-wget -O analog-photo-lora.safetensors https://huggingface.co/artificialguybr/analogredmond-v2/resolve/main/AnalogRedmondV2-Analog-AnalogRedmAF.safetensors
-wget -O lineart-manga-lora.safetensors https://huggingface.co/artificialguybr/LineAniRedmond-LinearMangaSDXL/resolve/main/LineAniRedmond-LineAniAF.safetensors
-cd /
+# run setup_comfy_ui.sh
+./setup_comfy_ui.sh
 
 cd /ComfyUI
 nohup python main.py --listen --port 3000 >> /dev/stdout 2>&1 &

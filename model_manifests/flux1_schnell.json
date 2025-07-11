@@ -1,0 +1,47 @@
+{
+    "checkpoints": [
+        {
+            "_type": "checkpoint",
+            "downloadSource": {
+                "default_url": "https://huggingface.co/Comfy-Org/flux1-schnell/resolve/main/flux1-schnell-fp8.safetensors",
+                "huggingface_hub": {
+                    "repo_id": "Comfy-Org/flux1-schnell",
+                    "filename": "flux1-schnell-fp8.safetensors"
+                }
+            }
+        }
+    ],
+    "diffusion_models": [
+        {
+            "_type": "diffusion_model",
+            "downloadSource": {
+                "default_url": "https://huggingface.co/Comfy-Org/flux1-kontext-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors"
+            }
+        }
+    ],
+    "loras": [],
+    "controlnets": [],
+    "text_encoders": [
+        {
+            "_type": "text_encoder",
+            "downloadSource": {
+                "default_url": "https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/clip_l.safetensors"
+            }
+        },
+        {
+            "_type": "text_encoder",
+            "downloadSource": {
+                "default_url": "https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/t5xxl_fp8_e4m3fn_scaled.safetensors"
+            }
+        }
+    ],
+    "vae": [
+        {
+            "_type": "vae",
+            "local_filename": "Lumina_Image_2_ae.safetensors",
+            "downloadSource": {
+                "default_url": "https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/blob/main/split_files/vae/ae.safetensors"
+            }
+        }
+    ]
+}
