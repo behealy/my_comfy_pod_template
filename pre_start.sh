@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Create model directories in workspace if they don't exist
-mkdir -p /workspace/sdxl/{checkpoints,clip,clip_vision,controlnet,diffusers,embeddings,loras,upscale_models,vae,unet,configs,text_encoders}
-mkdir -p /workspace/flux/{checkpoints,clip,clip_vision,controlnet,diffusers,embeddings,loras,upscale_models,vae,unet,configs,text_encoders}
+mkdir -p /workspace
 
 # run setup_comfy_ui.sh
 ./setup_comfy_ui.sh

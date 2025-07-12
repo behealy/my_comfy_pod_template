@@ -3,6 +3,7 @@ FROM runpod/base:0.6.3-cuda11.8.0
 ARG COMFYUI_VERSION
 
 # Create model directories and download models first (this layer will be cached)
+RUN mkdir -p /ComfyUI
 RUN mkdir -p /ComfyUI/models/{checkpoints,clip,clip_vision,controlnet,diffusers,embeddings,loras,upscale_models,vae}
 # Create user directory to store logs
 RUN mkdir -p /ComfyUI/user
@@ -25,5 +26,8 @@ COPY --chmod=755 pre_start.sh /pre_start.sh
 COPY model_manifests /model_manifests
 COPY model_manager.py /model_manager.py
 COPY --chmod=755 load_models.sh /load_models.sh
+
+# Setup env for the comfyUI setup script
+ENV COMFYUI_VERSION=${COMFYUI_VERSION}
 
 CMD [ "/start.sh" ]
