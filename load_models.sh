@@ -7,5 +7,5 @@ DIR=/workspace/models
 mkdir -p $DIR/{checkpoints,clip,clip_vision,controlnet,diffusers,embeddings,loras,upscale_models,vae,unet,configs,text_encoders}
 
 cd /
-pip install requirements.txt
+pip install -r requirements.txt
 python model_manager.py "$DIR" --manifest "/model_manifests/$DIFFUSION_MODEL.json"

@@ -26,6 +26,7 @@ COPY --chmod=755 pre_start.sh /pre_start.sh
 COPY model_manifests /model_manifests
 COPY model_manager.py /model_manager.py
 COPY --chmod=755 load_models.sh /load_models.sh
+COPY requirements.txt /requirements.txt
 
 # Setup env for the comfyUI setup script
 ENV COMFYUI_VERSION=${COMFYUI_VERSION}
