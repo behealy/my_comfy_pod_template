@@ -4,11 +4,11 @@ runpod_comfyui:
   clip: models/clip
   clip_vision: models/clip_vision
   configs: models/configs
-  controlnets: models/controlnets
+  controlnet: models/controlnets
   embeddings: models/embeddings
   loras: models/loras
   upscale_models: models/upscale_models
   vae: models/vae
   unet: models/unet
   text_encoders: models/text_encoders
-  custom_nodes: custom_nodes
+  custom_nodes: comfy/custom_nodes

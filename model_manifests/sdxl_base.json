@@ -43,7 +43,8 @@
                 "default_url": "https://huggingface.co/artificialguybr/LineAniRedmond-LinearMangaSDXL/resolve/main/LineAniRedmond-LineAniAF.safetensors"
             },
             "lora_data": {
-                "activation_tag": "LineAniAF"
+                "activation_tag": "LineAniAF",
+                "helpful_prompt_additions": "monochrome, anime, manga style with screen tones"
             }
         },
         {
@@ -68,6 +69,27 @@
             },
             "lora_data": {
                 "activation_tag": "Gildenface portrait photo"
+            }
+        },
+        {
+            "_type": "lora",
+            "downloadSource": {
+                "huggingface_hub": {
+                    "repo_id": "nerijs/pixel-art-xl",
+                    "filename": "pixel-art-xl.safetensors"
+                }
+            }
+        },
+        {
+            "_type": "lora",
+            "downloadSource": {
+                "huggingface_hub": {
+                    "repo_id": "artificialguybr/PixelArtRedmond",
+                    "filename": "PixelArtRedmond-Lite64.safetensors"
+                }
+            },
+            "lora_data": {
+                "activation_tag": "Pixel Art, PixArFK"
             }
         }
     ],

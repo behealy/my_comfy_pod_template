@@ -13,14 +13,4 @@ git clone https://github.com/ltdrdata/ComfyUI-Manager.git
 cd /ComfyUI/custom_nodes/ComfyUI-Manager
 pip install -r requirements.txt
 
-mkdir -p /workspace/custom_nodes
-
-function install_controlnet_nodes() {
-    # Setup custom nodes be stored on the pod volume.
-    echo "Installing ComfyUI Controlnet Aux"
-    cd /workspace/custom_nodes
-    git clone https://github.com/Fannovel16/comfyui_controlnet_aux/
-    git checkout 59b027e088c1c8facf7258f6e392d16d204b4d27
-    cd /workspace/custom_nodes/comfyui_controlnet_aux
-    pip install -r requirements.txt
-}
+mkdir -p /workspace/comfy/{custom_nodes,outputs,inputs,user}

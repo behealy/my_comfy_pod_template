@@ -1,7 +1,6 @@
 import os
 import json
 import argparse
-import shutil
 import requests
 from urllib.parse import urlparse
 from huggingface_hub import hf_hub_download
