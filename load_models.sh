@@ -1,10 +1,10 @@
 #!/bin/bash
 DIFFUSION_MODEL=$1
 
-DIR=/workspace/models
+DIR=/workspace/comfy/models
 
 # Create model directories in workspace if they don't exist
-mkdir -p $DIR/{checkpoints,clip,clip_vision,controlnet,diffusers,embeddings,loras,upscale_models,vae,unet,configs,text_encoders}
+mkdir -p $DIR/{checkpoints,clip,clip_vision,controlnet,diffusion_models,embeddings,loras,upscale_models,vae,unet,configs,text_encoders}
 
 cd /
 pip install -r requirements.txt
