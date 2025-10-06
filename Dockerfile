@@ -4,7 +4,7 @@ ARG COMFYUI_VERSION
 
 # Create model directories and download models first (this layer will be cached)
 RUN mkdir -p /ComfyUI
-RUN mkdir -p /ComfyUI/models/{checkpoints,clip,clip_vision,controlnet,diffusers,embeddings,loras,upscale_models,vae}
+RUN mkdir -p /ComfyUI/models/{checkpoints,clip,clip_vision,controlnet,diffusion_models,embeddings,loras,upscale_models,vae,unet,configs,text_encoders}
 # Create user directory to store logs
 RUN mkdir -p /ComfyUI/user
 
@@ -26,7 +26,11 @@ COPY --chmod=755 pre_start.sh /pre_start.sh
 COPY model_manifests /model_manifests
 COPY model_manager.py /model_manager.py
 COPY --chmod=755 load_models.sh /load_models.sh
+COPY --chmod=755 setup_workspace.sh /setup_workspace.sh
 COPY requirements.txt /requirements.txt
+
+# Add tool functions to run in web shell
+COPY --chmod=775 tools.sh  /.bashrc
 
 # Setup env for the comfyUI setup script
 ENV COMFYUI_VERSION=${COMFYUI_VERSION}

@@ -12,5 +12,3 @@ cd /ComfyUI/custom_nodes
 git clone https://github.com/ltdrdata/ComfyUI-Manager.git
 cd /ComfyUI/custom_nodes/ComfyUI-Manager
 pip install -r requirements.txt
-
-mkdir -p /workspace/comfy/{custom_nodes,outputs,inputs,user}
