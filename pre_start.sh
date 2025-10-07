@@ -1,9 +1,10 @@
 #!/bin/bash
-./setup_comfy_ui.sh
-./setup_workspace.sh
+# Install comfy reqs at container startup time
+pip install -r $COMFYUI_INSTALL_DIR/requirements.txt
+pip install -r $COMFYUI_INSTALL_DIR/custom_nodes/ComfyUI-Manager/requirements.txt
 
  # --output-directory, --input-directory, --user-directory
-nohup python /ComfyUI/main.py --listen --port 3000 --output-directory /workspace/comfy/outputs --user-directory /workspace/comfy/user  --input-directory /workspace/comfy/inputs & >> /dev/stdout 2>&1 &
+nohup python $COMFYUI_INSTALL_DIR/main.py --listen --port 3000 & >> /dev/stdout 2>&1 &
 
 # check if environment variable is set, if so, use it's value to run load_models.sh
 if [ -n "$MODEL_SET_ONSTARTUP" ]; then

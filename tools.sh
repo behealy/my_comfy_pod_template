@@ -1,28 +1,26 @@
 #!/bin/bash
-COMFY_MODELS_WORKSPACE_DIR=workspace/comfy/models
-
 function load_diffusion_model() {
     local url=$1
     local filename=$(basename $url)
-    wget $url -O $COMFY_MODELS_WORKSPACE_DIR/diffusion_models/$filename
+    wget $url -O $COMFY_MODELS_INSTALL_DIR/diffusion_models/$filename
 }
 
 function load_vae() {
     local url=$1
     local filename=$(basename $url)
-    wget $url -O $COMFY_MODELS_WORKSPACE_DIR/vae/$filename
+    wget $url -O $COMFY_MODELS_INSTALL_DIR/vae/$filename
 }
 
 function load_text_encoder() {
     local url=$1
     local filename=$(basename $url)
-    wget $url -O $COMFY_MODELS_WORKSPACE_DIR/text_encoders/$filename
+    wget $url -O $COMFY_MODELS_INSTALL_DIR/text_encoders/$filename
 }
 
 function load_lora() {
     local url=$1
     local filename=$(basename $url)
-    wget $url -O $COMFY_MODELS_WORKSPACE_DIR/loras/$filename
+    wget $url -O $COMFY_MODELS_INSTALL_DIR/loras/$filename
 }
 
 function load_qwen_image_models() {
