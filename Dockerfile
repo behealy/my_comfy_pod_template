@@ -35,8 +35,5 @@ COPY README.md /usr/share/nginx/html/README.md
 COPY extra_model_paths.yaml /ComfyUI/extra_model_paths.yaml
 
 RUN echo "source /tools.sh" >> /root/.bashrc
-RUN mkdir -p $WORKSPACE_VOLUME
-RUN mkdir -p $COMFYUI_INSTALL_DIR/custom_nodes
-RUN /install_comfyui.sh
 
 CMD [ "/start.sh" ]

@@ -17,7 +17,7 @@ function load_text_encoder() {
     wget $url -O $COMFY_MODELS_INSTALL_DIR/text_encoders/$filename
 }
 
-function load_lora() {
+function load_lora() { 
     local url=$1
     local filename=$(basename $url)
     wget $url -O $COMFY_MODELS_INSTALL_DIR/loras/$filename

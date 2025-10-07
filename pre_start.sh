@@ -1,7 +1,5 @@
 #!/bin/bash
-# Install comfy reqs at container startup time
-pip install -r $COMFYUI_INSTALL_DIR/requirements.txt
-pip install -r $COMFYUI_INSTALL_DIR/custom_nodes/ComfyUI-Manager/requirements.txt
+./install_comfyui.sh
 
  # --output-directory, --input-directory, --user-directory
 nohup python $COMFYUI_INSTALL_DIR/main.py --listen --port 3000 & >> /dev/stdout 2>&1 &
