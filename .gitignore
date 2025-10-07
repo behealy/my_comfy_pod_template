@@ -8,6 +8,8 @@ venv/
 env/
 .venv/
 
+.comfy_version
+
 # Data directories
 diffusion/
 

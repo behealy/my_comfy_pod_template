@@ -2,25 +2,33 @@
 function load_diffusion_model() {
     local url=$1
     local filename=$(basename $url)
-    wget $url -O $COMFY_MODELS_INSTALL_DIR/diffusion_models/$filename
+    local dir="$COMFY_MODELS_INSTALL_DIR/diffusion_models"
+    mkdir -p $dir
+    wget $url -O $dir/$filename
 }
 
 function load_vae() {
     local url=$1
     local filename=$(basename $url)
-    wget $url -O $COMFY_MODELS_INSTALL_DIR/vae/$filename
+    local dir="$COMFY_MODELS_INSTALL_DIR/vae"
+    mkdir -p $dir
+    wget $url -O $dir/$filename
 }
 
 function load_text_encoder() {
     local url=$1
     local filename=$(basename $url)
-    wget $url -O $COMFY_MODELS_INSTALL_DIR/text_encoders/$filename
+    local dir="$COMFY_MODELS_INSTALL_DIR/text_encoders"
+    mkdir -p $dir
+    wget $url -O $dir/$filename
 }
 
 function load_lora() { 
     local url=$1
     local filename=$(basename $url)
-    wget $url -O $COMFY_MODELS_INSTALL_DIR/loras/$filename
+    local dir="$COMFY_MODELS_INSTALL_DIR/loras"
+    mkdir -p $dir
+    wget $url -O $dir/$filename
 }
 
 function load_qwen_image_models() {

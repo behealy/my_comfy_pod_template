@@ -1,5 +1,9 @@
 #!/bin/bash
-./install_comfyui.sh
+mkdir -p $COMFY_MODELS_INSTALL_DIR/{checkpoints,clip,clip_vision,configs,controlnets,embeddings,loras,upscale_models,vae,diffusion_models,unet,text_encoders}
+
+./install_comfyui.sh $COMFYUI_INSTALL_DIR $COMFYUI_VERSION
+
+cp extra_model_paths.yaml $COMFYUI_INSTALL_DIR
 
  # --output-directory, --input-directory, --user-directory
 nohup python $COMFYUI_INSTALL_DIR/main.py --listen --port 3000 & >> /dev/stdout 2>&1 &
@@ -14,4 +18,5 @@ fi
 sleep 2
 if ! pgrep -f "python.*main.py.*--port.*3000" > /dev/null; then
     echo "Failed to start ComfyUI"
+    exit 1
 fi

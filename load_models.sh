@@ -3,4 +3,4 @@ DIFFUSION_MODEL=$1
 
 cd /
 pip install -r requirements.txt
-python model_manager.py "$COMFY_MODELS_INSTALL_DIR" --manifest "/model_manifests/$DIFFUSION_MODEL.json"
+python model_manager.py "$COMFY_MODELS_INSTALL_DIR" --manifest "/model_manifests/$DIFFUSION_MODEL.json" 

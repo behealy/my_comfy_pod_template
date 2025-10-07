@@ -1,5 +1,5 @@
 runpod_comfyui:
-  base_path: /workspace/comfy
+  base_path: /workspace
   checkpoints: models/checkpoints
   clip: models/clip
   clip_vision: models/clip_vision
@@ -14,4 +14,3 @@ runpod_comfyui:
     models/unet
   unet: models/unet
   text_encoders: models/text_encoders
-  custom_nodes: custom_nodes
