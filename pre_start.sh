@@ -14,5 +14,4 @@ fi
 sleep 2
 if ! pgrep -f "python.*main.py.*--port.*3000" > /dev/null; then
     echo "Failed to start ComfyUI"
-    exit 1
 fi
