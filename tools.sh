@@ -68,6 +68,13 @@ function load_wan_i2v_models() {
     load_lora https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors
 }
 
+function load_flux_kontext_models() {
+    load_vae https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/resolve/main/split_files/vae/ae.safetensors
+    load_text_encoder https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors
+    load_text_encoder https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn_scaled.safetensors
+    load_diffusion_model https://huggingface.co/Comfy-Org/flux1-kontext-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors
+}
+
 function install_controlnet_nodes() {
     # Setup custom nodes be stored on the pod volume.
     echo "Installing ComfyUI Controlnet Aux"
