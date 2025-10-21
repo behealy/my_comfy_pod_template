@@ -1,15 +1,16 @@
 FROM runpod/base:0.6.3-cuda11.8.0
 
 ARG COMFYUI_VERSION
+ARG BAKED
+ARG COMFYUI_INSTALL_DIR
 
 # Setup env for the comfyUI setup script
+ENV BAKED=${BAKED}
 ENV COMFYUI_VERSION=${COMFYUI_VERSION}
-
-ENV WORKSPACE_VOLUME=/workspace
-ENV COMFYUI_INSTALL_DIR=${WORKSPACE_VOLUME}/ComfyUI
+ENV COMFYUI_INSTALL_DIR=${COMFYUI_INSTALL_DIR}
 
 # For model install scripts
-ENV COMFY_MODELS_INSTALL_DIR=${WORKSPACE_VOLUME}/models
+ENV COMFY_MODELS_INSTALL_DIR=/workspace/models
 
 # Setup Python and pip symlinks
 RUN ln -sf /usr/bin/python3.10 /usr/bin/python && \
@@ -33,6 +34,8 @@ COPY requirements.txt /requirements.txt
 # Copy the README.md, extra_model_paths.yml and start script
 COPY README.md /usr/share/nginx/html/README.md
 COPY extra_model_paths.yaml /extra_model_paths.yaml
+
+RUN if [[ "$BAKED" == "yes" ]]; then ./install_comfyui.sh "$COMFYUI_INSTALL_DIR" "$COMFYUI_VERSION"; fi
 
 RUN echo "source /tools.sh" >> /root/.bashrc
 

@@ -1,9 +1,9 @@
 #!/bin/bash
 mkdir -p $COMFY_MODELS_INSTALL_DIR/{checkpoints,clip,clip_vision,configs,controlnets,embeddings,loras,upscale_models,vae,diffusion_models,unet,text_encoders}
 
-./install_comfyui.sh $COMFYUI_INSTALL_DIR $COMFYUI_VERSION
-
-cp extra_model_paths.yaml $COMFYUI_INSTALL_DIR
+if [[ "$BAKED" != "yes" ]]; then
+    ./install_comfyui.sh $COMFYUI_INSTALL_DIR $COMFYUI_VERSION
+fi
 
  # --output-directory, --input-directory, --user-directory
 nohup python $COMFYUI_INSTALL_DIR/main.py --listen --port 3000 & >> /dev/stdout 2>&1 &

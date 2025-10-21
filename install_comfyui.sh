@@ -25,6 +25,8 @@ fi
 if [[ ! -d $install_dir ]]; then 
     echo "Installing comfyUI version $target_comfyui_version"
     mkdir -p $install_dir
+    cp extra_model_paths.yaml $COMFYUI_INSTALL_DIR
+    
     cd $install_dir
     git init
     git remote add origin https://github.com/comfyanonymous/ComfyUI.git
