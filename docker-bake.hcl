@@ -3,7 +3,7 @@ variable "RELEASE" {
 }
 
 variable "COMFYUI_VERSION" {
-    default = "v0.3.62"
+    default = "v0.3.9"
 }
 
 variable "GITHUB_WORKSPACE" {
