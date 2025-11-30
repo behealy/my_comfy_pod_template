@@ -1,5 +1,5 @@
 variable "RELEASE" {
-    default = "0.0.6"
+    default = "0.0.7"
 }
 
 variable "COMFYUI_VERSION" {

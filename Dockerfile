@@ -10,7 +10,9 @@ ENV COMFYUI_VERSION=${COMFYUI_VERSION}
 ENV COMFYUI_INSTALL_DIR=${COMFYUI_INSTALL_DIR}
 
 # For model install scripts
-ENV COMFY_MODELS_INSTALL_DIR=/workspace/models
+ENV WORKSPACE_FOLDER=/workspace
+ENV COMFY_MODELS_INSTALL_DIR="$WORKSPACE_FOLDER/models"
+ENV HF_HOME="${WORKSPACE_FOLDER}/hf_cache"
 
 # Setup Python and pip symlinks
 RUN ln -sf /usr/bin/python3.10 /usr/bin/python && \

@@ -1,12 +1,15 @@
 #!/bin/bash
+mkdir -p $HF_HOME
 mkdir -p $COMFY_MODELS_INSTALL_DIR/{checkpoints,clip,clip_vision,configs,controlnets,embeddings,loras,upscale_models,vae,diffusion_models,unet,text_encoders}
+mkdir -p $WORKSPACE_FOLDER/comfy_user
+
 
 if [[ "$BAKED" != "yes" ]]; then
     ./install_comfyui.sh $COMFYUI_INSTALL_DIR $COMFYUI_VERSION
 fi
 
  # --output-directory, --input-directory, --user-directory
-nohup python $COMFYUI_INSTALL_DIR/main.py --listen --port 3000 & >> /dev/stdout 2>&1 &
+nohup python $COMFYUI_INSTALL_DIR/main.py --listen --port 3000 --user-directory $WORKSPACE_FOLDER/comfy_user & >> /dev/stdout 2>&1 &
 
 # check if environment variable is set, if so, use it's value to run load_models.sh
 if [ -n "$MODEL_SET_ONSTARTUP" ]; then
