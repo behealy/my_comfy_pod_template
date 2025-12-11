@@ -7,6 +7,22 @@ function load_diffusion_model() {
     wget $url -O $dir/$filename
 }
 
+function load_clip() {
+    local url=$1
+    local filename=$(basename $url)
+    local dir="$COMFY_MODELS_INSTALL_DIR/clip"
+    mkdir -p $dir
+    wget $url -O $dir/$filename
+}
+
+function load_unet() {
+    local url=$1
+    local filename=$(basename $url)
+    local dir="$COMFY_MODELS_INSTALL_DIR/clip"
+    mkdir -p $dir
+    wget $url -O $dir/$filename
+}
+
 function load_vae() {
     local url=$1
     local filename=$(basename $url)
@@ -60,10 +76,10 @@ function load_wan_t2v_models() {
 }
 
 function load_wan_i2v_models() {
-    load_text_encoder https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors
+    load_clip https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors
     load_vae https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors
-    load_diffusion_model https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors
-    load_diffusion_model https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors
+    load_unet https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors
+    load_unet https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors
     load_lora https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors
     load_lora https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors
 }
