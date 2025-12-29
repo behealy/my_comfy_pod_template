@@ -18,19 +18,11 @@ function load_diffusion_model() {
 }
 
 function load_clip() {
-    local url=$1
-    local filename=$(basename $url)
-    local dir="$COMFY_MODELS_INSTALL_DIR/clip"
-    mkdir -p $dir
-    wget $url -O $dir/$filename
+    comfy_load_model "clip" $1
 }
 
 function load_unet() {
-    local url=$1
-    local filename=$(basename $url)
-    local dir="$COMFY_MODELS_INSTALL_DIR/clip"
-    mkdir -p $dir
-    wget $url -O $dir/$filename
+    comfy_load_model "unet" $1
 }
 
 function load_vae() {
