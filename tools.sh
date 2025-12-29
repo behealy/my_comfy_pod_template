@@ -1,34 +1,32 @@
 #!/bin/bash
-function load_diffusion_model() {
-    local url=$1
+function comfy_load_model() {
+    local url=$2
+    local dir="$COMFY_MODELS_INSTALL_DIR/$1"
     local filename=$(basename $url)
-    local dir="$COMFY_MODELS_INSTALL_DIR/diffusion_models"
-    mkdir -p $dir
-    wget $url -O $dir/$filename
+    local resolved="$dir/$filename"
+    if [[ ! -f $resolved ]] then;
+        echo "Downloading $filename to $dir"
+        mkdir -p $dir
+        wget $url -O $resolved
+    else 
+        echo "$filename already present in $dir, skipping"
+    fi
+}
+
+function load_diffusion_model() {
+    comfy_load_model "diffusion_models" $1
 }
 
 function load_vae() {
-    local url=$1
-    local filename=$(basename $url)
-    local dir="$COMFY_MODELS_INSTALL_DIR/vae"
-    mkdir -p $dir
-    wget $url -O $dir/$filename
+    comfy_load_model "vae" $1
 }
 
 function load_text_encoder() {
-    local url=$1
-    local filename=$(basename $url)
-    local dir="$COMFY_MODELS_INSTALL_DIR/text_encoders"
-    mkdir -p $dir
-    wget $url -O $dir/$filename
+    comfy_load_model "text_encoders" $1
 }
 
 function load_lora() { 
-    local url=$1
-    local filename=$(basename $url)
-    local dir="$COMFY_MODELS_INSTALL_DIR/loras"
-    mkdir -p $dir
-    wget $url -O $dir/$filename
+     comfy_load_model "loras" $1
 }
 
 function load_qwen_image_models() {

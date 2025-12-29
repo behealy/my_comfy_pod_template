@@ -26,3 +26,4 @@ coverage/
 models_manifest.example.json
 
 workspace/
+image_env/
