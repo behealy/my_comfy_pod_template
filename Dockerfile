@@ -1,4 +1,5 @@
-FROM runpod/base:0.6.3-cuda11.8.0
+ARG BASE_IMAGE=behealy/dev-base:1.0.3-cuda1281-ubuntu2404
+FROM ${BASE_IMAGE}
 
 ARG COMFYUI_VERSION
 ARG BAKED

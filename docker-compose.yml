@@ -1,16 +1,15 @@
 services:
   comfyui:
-    image: behealy/my_comfy_pod
+    image: behealy/my_comfy_pod:0.0.7-bakedin-cpu
     ports:
-      - "3001:3000" # ComfyUI
-      - "8888:8888" # Jupyter
-      - "4040:4040" # Filebrowser
+      - "3001:3001" # ComfyUI
+      - "8889:8889"   # Jupyter Lab
+      - "4040:4040"   # Filebrowser
+      - "8001:8001"   # VS code server
     environment:
-      - JUPYTER_PASSWORD=thisismypassword
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+      - JUPYTER_PASSWORD=joopies
+    volumes:
+      - ./workspace:/workspace
+    profiles:
+      - cpu
+
