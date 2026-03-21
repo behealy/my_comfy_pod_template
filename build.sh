@@ -189,7 +189,8 @@ build_and_push() {
         return 0
     fi
 
-    docker buildx bake    
+    export RELEASE=$(cat "$DEFAULT_VERSION_FILE" | tr -d '[:space:]')
+    docker buildx bake --push
 
     log_info "Successfully built and pushed all variants for version: $new_ver"
 }
