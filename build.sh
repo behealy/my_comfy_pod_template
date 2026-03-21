@@ -151,12 +151,8 @@ commit_and_tag() {
     
     log_info "Committing version bump..."
     
-    if git status --porcelain | grep -qv .; then
-        git add VERSION.txt docker-bake.hcl 2>/dev/null || true
-    fi
-    
     local message="chore: release $new_ver (bumped from $old_ver)"
-    git commit -m "$message" || \
+    git commit -am "$message" || \
         log_error "Failed to commit. Ensure all changes are staged." && return 1
     
     if ! git push origin HEAD; then
